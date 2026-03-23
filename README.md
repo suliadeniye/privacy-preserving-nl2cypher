@@ -1,17 +1,31 @@
 ```markdown
 > Privacy-preserving NLP pipeline for masking sensitive entities in real-world query systems (IEEE ICAD 2026)
 
+
 # Privacy-Preserving NL2Cypher: Masking Pipeline
 
-## Overview
+## System Overview
 
-This repository contains a lightweight implementation of a **privacy-preserving preprocessing pipeline** for natural language queries in sensitive domains.
+![Pipeline Architecture](pipeline_architecture.png)
+
+This repository contains a lightweight implementation of a **privacy-preserving preprocessing pipeline** for natural language queries in sensitive domains. The diagram illustrates the **privacy-preserving masking layer** (left side of the diagram), which ensures that only sanitized queries are passed to downstream LLM and database systems.
 
 The system is designed to **detect, normalize, and mask sensitive entities** (e.g., names, ages, locations) before queries are passed to downstream systems such as large language models (LLMs) or database query engines.
 
 This work is motivated by real-world applications where user queries may contain personally identifiable information (PII), and safe handling is required before external processing.
 
 ---
+
+### Key Idea
+
+The system enforces a **strict privacy boundary**:
+
+- All sensitive entity detection and masking occurs locally
+- Only masked (sanitized) queries are sent to the LLM
+- Original values are restored only after query generation
+
+This design prevents leakage of sensitive information while still enabling natural language interaction with structured data systems.
+
 
 ## Key Features
 
