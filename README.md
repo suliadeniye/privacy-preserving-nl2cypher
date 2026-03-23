@@ -1,34 +1,52 @@
-Privacy-Preserving NL2Cypher: Masking Pipeline
+```markdown
+> Privacy-preserving NLP pipeline for masking sensitive entities in real-world query systems (IEEE ICAD 2026)
 
-Overview
-This repository contains a lightweight implementation of a privacy-preserving preprocessing pipeline for natural language queries in sensitive domains.
+# Privacy-Preserving NL2Cypher: Masking Pipeline
 
-The system is designed to detect, normalize, and mask sensitive entities (e.g., names, ages, locations) before queries are passed to downstream systems such as large language models (LLMs) or database query engines.
+## Overview
+
+This repository contains a lightweight implementation of a **privacy-preserving preprocessing pipeline** for natural language queries in sensitive domains.
+
+The system is designed to **detect, normalize, and mask sensitive entities** (e.g., names, ages, locations) before queries are passed to downstream systems such as large language models (LLMs) or database query engines.
 
 This work is motivated by real-world applications where user queries may contain personally identifiable information (PII), and safe handling is required before external processing.
 
-Key Features
-Regex-first masking for sensitive attributes
-    -   Handles cue-less numeric ages (e.g., “36” → [AGE 1])
-Named Entity Recognition (SpaCy) with span expansion
-    -   Improved handling of multi-token names (e.g., “Amanda-Lynn Smith”)
-Adversarial robustness
-    -   Character-level normalization (e.g., W@ng → Wang)
-Placeholder-based masking
-    -   Replaces entities with structured placeholders (e.g., [PERSON 1])
-Reinsertion support
-    -   Restores original values after downstream processing
+---
 
-Example
+## Key Features
 
-Input:
-    What are the offenses committed by M. Lopez, 36, offenses in Phoenix?
+- **Regex-first masking for sensitive attributes**
+  - Handles cue-less numeric ages (e.g., `36 → [AGE_1]`)
 
-Output:
+- **Named Entity Recognition (SpaCy) with span expansion**
+  - Improved handling of multi-token names (e.g., `Amanda-Lynn Smith`)
+
+- **Adversarial robustness**
+  - Character-level normalization (e.g., `W@ng → Wang`)
+
+- **Placeholder-based masking**
+  - Replaces entities with structured placeholders (e.g., `[PERSON_1]`)
+
+- **Reinsertion support**
+  - Restores original values after downstream processing
+
+---
+
+## Example
+
+**Input:**
+```text
+What are the offenses committed by M. Lopez, 36, offenses in Phoenix?
+
+---
+
+**Output:**
+```text
     What are the offenses committed by [PERSON_1], [AGE_1], offenses in [CITY_1]?
 
+---
 
-Project Structure
+## Project Structure
 
 privacy-preserving-nl2cypher/
 ├── README.md
@@ -42,20 +60,32 @@ privacy-preserving-nl2cypher/
 │   ├── sample_queries.txt
 │   └── sample_outputs.md
 
-Installation
+## Installation
 
 1.  Clone the repository:
+
+    </> Bash
+
     git clone https://github.com/suliadeniye/privacy-preserving-nl2cypher.git
     cd privacy-preserving-nl2cypher
 
 2. Install Dependencies
+
+    </> Bash
+
     pip install -r requirements.txt
 
 3.  Download SpaCy language model:
+
+    </> Bash
+
     python -m spacy download en_core_web_sm
 
-Running the Demo
+## Running the Demo
+
     Navigate to the src directory and run:
+
+    </> Bash
 
     cd src
     python demo.py
@@ -63,17 +93,19 @@ Running the Demo
 
 This will execute a small set of example queries and display:
 
-Original query
-Normalized query
-Masked query
-Entity mappings
-Restored query
+- Original query
+- Normalized query
+- Masked query
+- Entity mappings
+- Restored query
 
 
-Notes
-No real or sensitive datasets are included in this repository
-Example queries are synthetic and for demonstration purposes only
-This repository focuses on the privacy-preserving masking layer of a larger system
+## Notes
 
-Related Work
+- No real or sensitive datasets are included in this repository
+- Example queries are synthetic and for demonstration purposes only
+- This repository focuses on the privacy-preserving masking layer of a larger system
+
+## Related Work
+
 This repository is part of a broader system for natural language to graph query translation (NL2Cypher), developed during my PhD and accepted at IEEE ICAD 2026.
