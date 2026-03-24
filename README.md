@@ -1,4 +1,4 @@
-```markdown
+
 > Privacy-preserving NLP pipeline for masking sensitive entities in real-world query systems (IEEE ICAD 2026)
 
 
@@ -6,7 +6,6 @@
 
 ## System Overview
 
-```markdown
 ![Pipeline Architecture](assets/pipeline_architecture.png)
 
 This repository contains a lightweight implementation of a **privacy-preserving preprocessing pipeline** for natural language queries in sensitive domains. The diagram illustrates the **privacy-preserving masking layer** (left side of the diagram), which ensures that only sanitized queries are passed to downstream LLM and database systems.
@@ -47,13 +46,13 @@ This design prevents leakage of sensitive information while still enabling natur
 ## Example
 
 **Input:**
-```text
+```text```
 What are the offenses committed by M. Lopez, 36, offenses in Phoenix?
 
 
 
 **Output:**
-```text
+```text```
     What are the offenses committed by [PERSON_1], [AGE_1], offenses in [CITY_1]?
 
 
@@ -75,20 +74,20 @@ privacy-preserving-nl2cypher/
 
 1.  Clone the repository:
 
-    ```bash
+    ```bash```
 
     git clone https://github.com/suliadeniye/privacy-preserving-nl2cypher.git
     cd privacy-preserving-nl2cypher
 
 2. Install Dependencies
 
-    ```bash
+    ```bash```
 
     pip install -r requirements.txt
 
 3.  Download SpaCy language model:
 
-    ```bash
+    ```bash```
 
     python -m spacy download en_core_web_sm
 
@@ -96,7 +95,7 @@ privacy-preserving-nl2cypher/
 
     Navigate to the src directory and run:
 
-    ```bash
+    ```bash```
 
     cd src
     python demo.py
