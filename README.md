@@ -6,6 +6,7 @@
 
 ## System Overview
 
+```markdown
 ![Pipeline Architecture](https://raw.githubusercontent.com/suliadeniye/privacy-preserving-nl2cypher/main/assets/pipeline_architecture.png)
 
 This repository contains a lightweight implementation of a **privacy-preserving preprocessing pipeline** for natural language queries in sensitive domains. The diagram illustrates the **privacy-preserving masking layer** (left side of the diagram), which ensures that only sanitized queries are passed to downstream LLM and database systems.
@@ -74,20 +75,26 @@ privacy-preserving-nl2cypher/
 
 1.  Clone the repository:
 
-    </> Bash
+    </> Markdown
+
+    ```bash
 
     git clone https://github.com/suliadeniye/privacy-preserving-nl2cypher.git
     cd privacy-preserving-nl2cypher
 
 2. Install Dependencies
 
-    </> Bash
+    </> Markdown
+
+    ```bash
 
     pip install -r requirements.txt
 
 3.  Download SpaCy language model:
 
-    </> Bash
+    </> Markdown
+
+    ```bash
 
     python -m spacy download en_core_web_sm
 
@@ -95,7 +102,9 @@ privacy-preserving-nl2cypher/
 
     Navigate to the src directory and run:
 
-    </> Bash
+    </> Markdown
+
+    ```bash
 
     cd src
     python demo.py
