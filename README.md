@@ -46,14 +46,15 @@ This design prevents leakage of sensitive information while still enabling natur
 ## Example
 
 **Input:**
-```text```
+```text
 What are the offenses committed by M. Lopez, 36, offenses in Phoenix?
-
+```
 
 
 **Output:**
-```text```
+```text
     What are the offenses committed by [PERSON_1], [AGE_1], offenses in [CITY_1]?
+```
 
 
 ## Project Structure
@@ -74,32 +75,36 @@ privacy-preserving-nl2cypher/
 
 1.  Clone the repository:
 
-    ```bash```
+    ```bash
 
     git clone https://github.com/suliadeniye/privacy-preserving-nl2cypher.git
-    
+
     cd privacy-preserving-nl2cypher
+    ```
 
 2. Install Dependencies
 
-    ```bash```
+    ```bash
 
     pip install -r requirements.txt
+    ```
 
 3.  Download SpaCy language model:
 
-    ```bash```
+    ```bash
 
     python -m spacy download en_core_web_sm
+    ```
 
 ## Running the Demo
 
     Navigate to the src directory and run:
 
-    ```bash```
+    ```bash
 
     cd src
     python demo.py
+    ```
 
 
 This will execute a small set of example queries and display:
