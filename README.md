@@ -77,6 +77,7 @@ privacy-preserving-nl2cypher/
     ```bash```
 
     git clone https://github.com/suliadeniye/privacy-preserving-nl2cypher.git
+    
     cd privacy-preserving-nl2cypher
 
 2. Install Dependencies
