@@ -71,7 +71,7 @@ privacy-preserving-nl2cypher/
 ├── examples/
 │   ├── sample_queries.txt
 │   └── sample_outputs.md
-```
+---
 
 ## Installation
 
