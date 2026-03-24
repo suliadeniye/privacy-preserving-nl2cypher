@@ -59,6 +59,7 @@ What are the offenses committed by M. Lopez, 36, offenses in Phoenix?
 
 ## Project Structure
 
+```text
 privacy-preserving-nl2cypher/
 ├── README.md
 ├── requirements.txt
@@ -70,6 +71,7 @@ privacy-preserving-nl2cypher/
 ├── examples/
 │   ├── sample_queries.txt
 │   └── sample_outputs.md
+```
 
 ## Installation
 
