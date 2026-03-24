@@ -4,11 +4,9 @@
 
 # Privacy-Preserving NL2Cypher: Masking Pipeline
 
-</> Markdown
-
 ## System Overview
 
-![Pipeline Architecture](assets/pipeline_architecture.png)
+![Pipeline Architecture](https://github.com/suliadeniye/privacy-preserving-nl2cypher/blob/87b260c0fd067334dc51b02fa53b9ddfe89ad5f4/assets/pipeline_architecture.png)
 
 This repository contains a lightweight implementation of a **privacy-preserving preprocessing pipeline** for natural language queries in sensitive domains. The diagram illustrates the **privacy-preserving masking layer** (left side of the diagram), which ensures that only sanitized queries are passed to downstream LLM and database systems.
 
