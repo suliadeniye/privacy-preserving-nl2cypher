@@ -100,13 +100,12 @@ privacy-preserving-nl2cypher/
 
     Navigate to the src directory and run:
 
-    
+    ```bash
 
     cd src
 
     python demo.py
-
-
+    ```
 
 
 This will execute a small set of example queries and display:
