@@ -47,7 +47,7 @@ This design prevents leakage of sensitive information while still enabling natur
 
 **Input:**
 ```text
-What are the offenses committed by M. Lopez, 36, offenses in Phoenix?
+What are the offenses committed by M. Lopez, 36, in Phoenix?
 ```
 
 
