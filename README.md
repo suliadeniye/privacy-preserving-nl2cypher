@@ -103,7 +103,9 @@ privacy-preserving-nl2cypher/
     ```bash
 
     cd src
+
     python demo.py
+    
     ```
 
 
