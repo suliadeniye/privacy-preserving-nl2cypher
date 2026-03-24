@@ -75,8 +75,6 @@ privacy-preserving-nl2cypher/
 
 1.  Clone the repository:
 
-    </> Markdown
-
     ```bash
 
     git clone https://github.com/suliadeniye/privacy-preserving-nl2cypher.git
@@ -84,15 +82,11 @@ privacy-preserving-nl2cypher/
 
 2. Install Dependencies
 
-    </> Markdown
-
     ```bash
 
     pip install -r requirements.txt
 
 3.  Download SpaCy language model:
-
-    </> Markdown
 
     ```bash
 
@@ -101,8 +95,6 @@ privacy-preserving-nl2cypher/
 ## Running the Demo
 
     Navigate to the src directory and run:
-
-    </> Markdown
 
     ```bash
 
