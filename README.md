@@ -6,7 +6,7 @@
 
 ## System Overview
 
-![Pipeline Architecture](https://github.com/suliadeniye/privacy-preserving-nl2cypher/blob/87b260c0fd067334dc51b02fa53b9ddfe89ad5f4/assets/pipeline_architecture.png)
+![Pipeline Architecture](https://raw.githubusercontent.com/suliadeniye/privacy-preserving-nl2cypher/refs/heads/main/assets/pipeline_architecture.png)
 
 This repository contains a lightweight implementation of a **privacy-preserving preprocessing pipeline** for natural language queries in sensitive domains. The diagram illustrates the **privacy-preserving masking layer** (left side of the diagram), which ensures that only sanitized queries are passed to downstream LLM and database systems.
 
@@ -14,7 +14,6 @@ The system is designed to **detect, normalize, and mask sensitive entities** (e.
 
 This work is motivated by real-world applications where user queries may contain personally identifiable information (PII), and safe handling is required before external processing.
 
----
 
 ### Key Idea
 
@@ -44,21 +43,18 @@ This design prevents leakage of sensitive information while still enabling natur
 - **Reinsertion support**
   - Restores original values after downstream processing
 
----
-
 ## Example
 
 **Input:**
 ```text
 What are the offenses committed by M. Lopez, 36, offenses in Phoenix?
 
----
+
 
 **Output:**
 ```text
     What are the offenses committed by [PERSON_1], [AGE_1], offenses in [CITY_1]?
 
----
 
 ## Project Structure
 
