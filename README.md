@@ -53,7 +53,7 @@ What are the offenses committed by M. Lopez, 36, offenses in Phoenix?
 
 **Output:**
 ```text
-    What are the offenses committed by [PERSON_1], [AGE_1], offenses in [CITY_1]?
+What are the offenses committed by [PERSON_1], [AGE_1], offenses in [CITY_1]?
 ```
 
 
@@ -127,4 +127,4 @@ This will execute a small set of example queries and display:
 
 ## Related Work
 
-This repository is part of a broader system for natural language to graph query translation (NL2Cypher), developed during my PhD and accepted at IEEE ICAD 2026.
+This repository is part of a broader system for secure natural language to graph query translation (NL2Cypher), developed during my PhD and accepted at IEEE ICAD 2026.
