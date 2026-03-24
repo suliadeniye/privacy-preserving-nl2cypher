@@ -96,7 +96,7 @@ privacy-preserving-nl2cypher/
     python -m spacy download en_core_web_sm
     ```
 
-## Running the Demo
+4 Running the Demo
 
     Navigate to the src directory and run:
 
