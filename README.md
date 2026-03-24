@@ -32,7 +32,7 @@ This design prevents leakage of sensitive information while still enabling natur
   - Handles cue-less numeric ages (e.g., `36 → [AGE_1]`)
 
 - **Named Entity Recognition (SpaCy) with span expansion**
-  - Improved handling of multi-token names (e.g., `Amanda-Lynn Smith`)
+  - Improved handling of multi-token names (e.g., `Miss Amanda-Lynn Smith`)
 
 - **Adversarial robustness**
   - Character-level normalization (e.g., `W@ng → Wang`)
