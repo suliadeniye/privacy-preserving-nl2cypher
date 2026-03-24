@@ -4,6 +4,8 @@
 
 # Privacy-Preserving NL2Cypher: Masking Pipeline
 
+</> Markdown
+
 ## System Overview
 
 ![Pipeline Architecture](assets/pipeline_architecture.png)
