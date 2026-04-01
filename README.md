@@ -1,7 +1,4 @@
 
-> Privacy-preserving NLP pipeline for masking sensitive entities in real-world query systems (IEEE ICAD 2026)
-
-
 # Privacy-Preserving NL2Cypher Pipeline
 
 A lightweight implementation of a **privacy-preserving natural language to graph query (NL→Cypher) pipeline**, designed for querying sensitive data while preventing leakage of personally identifiable information (PII).
@@ -65,7 +62,7 @@ What are the offenses committed by M. Lopez, 36, in Phoenix?
 **Sanitization Layer Output (Implemented Here)**
 
 ```text
-What are the offenses committed by [PERSON_1], [AGE_1], offenses in [CITY_1]?
+What are the offenses committed by [PERSON_1], [AGE_1], in [CITY_1]?
 ```
 
 **Translation Layer Output (LLM → Cypher, Conceptual)**
