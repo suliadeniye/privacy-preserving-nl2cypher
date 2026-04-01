@@ -19,6 +19,25 @@ This project enforces a **strict privacy boundary**:
 
 ---
 
+## Graph Data Context
+
+This pipeline is designed for querying a **graph database containing sensitive records**, such as:
+
+- Individuals (PERSON)
+- Criminal offenses (CRIME)
+- Locations (CITY, STATE)
+- Temporal attributes (dates, ages)
+
+The system assumes a schema where entities and relationships support queries such as:
+
+- "Show offenses committed by a person"
+- "Find co-offending patterns"
+- "Analyze temporal trends in offenses"
+
+The sanitization layer operates **independently of the schema**, ensuring that sensitive identifiers are protected before query translation.
+
+---
+
 ## System Architecture
 
 User Query (Natural Language) -> [Sanitization Layer (This Repo)] -> Masked Query -> [Translation Layer (LLM->Cypher)] -> Cypher Query (with placeholders) -> [De-masking Layer] -> Executable Cypher Query -> Graph Database
