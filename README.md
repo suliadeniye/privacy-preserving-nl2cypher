@@ -2,29 +2,40 @@
 > Privacy-preserving NLP pipeline for masking sensitive entities in real-world query systems (IEEE ICAD 2026)
 
 
-# Privacy-Preserving NL2Cypher: Masking Pipeline
+# Privacy-Preserving NL2Cypher Pipeline
+
+A lightweight implementation of a **privacy-preserving natural language to graph query (NL→Cypher) pipeline**, designed for querying sensitive data while preventing leakage of personally identifiable information (PII).
+
+This project demonstrates the **sanitization (masking) layer** of a larger system that enables safe interaction with graph databases using natural language.
 
 ## System Overview
 
 ![Pipeline Architecture](assets/pipeline_architecture.png)
 
-This repository contains a lightweight implementation of a **privacy-preserving preprocessing pipeline** for natural language queries in sensitive domains. The diagram illustrates the **privacy-preserving masking layer** (left side of the diagram), which ensures that only sanitized queries are passed to downstream LLM and database systems.
+Modern applications increasingly rely on natural language interfaces powered by LLMs. However, in sensitive domains (e.g., law enforcement, healthcare), user queries may contain **personally identifiable information (PII)** that must not be exposed to external systems.
 
-The system is designed to **detect, normalize, and mask sensitive entities** (e.g., names, ages, locations) before queries are passed to downstream systems such as large language models (LLMs) or database query engines.
+This project enforces a **strict privacy boundary**:
 
-This work is motivated by real-world applications where user queries may contain personally identifiable information (PII), and safe handling is required before external processing.
+- Sensitive entities are detected and masked **locally**
+- Only sanitized queries are sent to downstream systems (e.g., LLMs)
+- Original values are restored **after query generation**
 
+---
 
-### Key Idea
+## System Architecture
 
-The system enforces a **strict privacy boundary**:
+User Query (Natural Language) -> [Sanitization Layer (This Repo)] -> Masked Query -> [Translation Layer (LLM->Cypher)] -> Cypher Query (with placeholders) -> [De-masking Layer] -> Executable Cypher Query -> Graph Database
 
-- All sensitive entity detection and masking occurs locally
-- Only masked (sanitized) queries are sent to the LLM
-- Original values are restored only after query generation
+## What This Repository Implements
 
-This design prevents leakage of sensitive information while still enabling natural language interaction with structured data systems.
+This repository focuses on the **Sanitization Layer**, which:
 
+- Detects sensitive entities (names, ages, locations)
+- Normalizes adversarial or irregular inputs
+- Replaces entities with structured placeholders
+- Maintains mappings for safe reinsertion
+       
+---
 
 ## Key Features
 
@@ -43,18 +54,40 @@ This design prevents leakage of sensitive information while still enabling natur
 - **Reinsertion support**
   - Restores original values after downstream processing
 
-## Example
+## End-to-End Example
 
-**Input:**
+### Input (User Query)
+
 ```text
 What are the offenses committed by M. Lopez, 36, in Phoenix?
 ```
 
+**Sanitization Layer Output (Implemented Here)**
 
-**Output:**
 ```text
 What are the offenses committed by [PERSON_1], [AGE_1], offenses in [CITY_1]?
 ```
+
+**Translation Layer Output (LLM → Cypher, Conceptual)**
+
+```text
+MATCH (p:Person)-[r:COMMITTED]->(c:CRIME)
+WHERE p.name = PERSON_1 AND p.age = AGE_1 AND r.city = CITY_1
+```
+
+**De-masking Query (Executed in Database):**
+
+```text
+MATCH (p:Person)-[r:COMMITTED]->(c:CRIME)
+WHERE p.name = "M. Lopez" AND p.age = 36 AND r.city = "Phoenix"
+RETURN c
+```
+
+## Translation Layer (Conceptual / External)
+
+The translation from masked natural language queries to Cypher is performed using a large language model (LLM).
+
+This repository focuses on the privacy-preserving preprocessing step. The translation layer is not included in this implementation, but is part of the full system described in the associated research work.
 
 
 ## Project Structure
@@ -109,8 +142,7 @@ privacy-preserving-nl2cypher/
     python demo.py
     ```
 
-
-This will execute a small set of example queries and display:
+### This will execute a small set of example queries and display:
 
 - Original query
 - Normalized query
@@ -118,13 +150,14 @@ This will execute a small set of example queries and display:
 - Entity mappings
 - Restored query
 
-
 ## Notes
 
-- No real or sensitive datasets are included in this repository
-- Example queries are synthetic and for demonstration purposes only
-- This repository focuses on the privacy-preserving masking layer of a larger system
+- No real or sensitive datasets are included
+- Example queries are synthetic
+- This is a lightweight demonstration of the full pipeline
 
 ## Related Work
 
-This repository is part of a broader system for secure natural language to graph query translation (NL2Cypher), developed during my PhD and accepted at IEEE ICAD 2026.
+This project is part of a broader system for secure natural language interfaces to graph databases, developed during my PhD research and accepted at:
+- IEEE ICAD 2025
+- IEEE ICAD 2026
